@@ -8,7 +8,7 @@ from time import sleep
 i2c = I2C(0, sda=Pin(0), scl=Pin(1), freq=400000)
 imu = MPU6050(i2c)
 imu.accel_range = 2      # +/-8g range
-imu.filter_range = 3     # Low pass filter against vibration
+imu.filter_range = 3     # Low pass filter against vibration, filters 41 Hz
 
 def read_a(axis): #reads the linear acceleration of the rocket
     return getattr(imu.accel, axis)
